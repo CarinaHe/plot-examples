@@ -1,0 +1,21 @@
+## neundf kreieren u befüllen mit data aus anderem df ... funktionier!!!
+# ACHTUNG: im csv file auf komma-stellen achten! (decimal=..., wenn keine punkte verwendet werden)
+
+
+import pandas as pd
+
+data = pd.read_csv("dmv.csv", delimiter=",", decimal=",", usecols=['ID', 'Klasse', 'Anz_lebend'])  # or reading from a file
+
+new = pd.DataFrame(columns = ['ID', 'Klasse', 'Anz_lebend'])
+
+
+i = 0
+while i < 20:
+    i = i + 1
+    a = data.loc[data['Klasse'] == i, 'Anz_lebend'].sum()
+    new = new.append({'ID': i, 'Klasse': i, 'Anz_lebend': a}, ignore_index=True)
+
+
+
+new.to_csv('test.csv')
+

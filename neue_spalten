@@ -1,0 +1,19 @@
+
+# file öffnen, 10 spalten erzeugen mit Bedingung u neues file erstellen
+
+
+import pandas as pd
+
+data = pd.read_csv("dmv.csv", delimiter=",", usecols=['ID', 'Klasse', 'Anz_lebend'])  # or reading from a file
+
+
+
+
+i = 0
+while i < 10:
+    i = i + 1
+    data[i] = [row['Anz_lebend'] if (row['Klasse'] == i) else 0 for index, row in data.iterrows()]
+
+
+
+data.to_csv('test.csv')

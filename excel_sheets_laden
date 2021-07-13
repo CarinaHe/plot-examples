@@ -1,0 +1,13 @@
+import pandas as pd
+
+gesamt = pd.ExcelFile('WZPsGesamt.xlsx') ' gesamtes file als objekt geladen
+
+print(gesamt.sheet_names) # zeigt die namen der einzelnen Blätter
+
+# wenn namen bekannt einzelne sheets mit gewünschten columns laden
+
+dmkl=pd.read_excel('WZPsGesamt.xlsx', sheet_name='durchmesserklassen_richtig', usecols=['Plot', 'cluster_4_5_neu', 'Stand', 'Transect'])
+
+tracks = pd.read_excel('WZPsGesamt.xlsx', sheet_name='site', usecols=['Plot', 'tracks_total'])
+
+print(dmkl.columns)
