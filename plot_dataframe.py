@@ -19,6 +19,10 @@ for i in range(1, 21):
         ignore_index=True)
 new_dataframe.to_csv('test.csv')
 
+# the whole thing in one line:
+# new_data = data.groupby(['Klasse'])['Anz_lebend'].sum()
+
+
 # Plot with Pandas
 new_dataframe.set_index('Klasse')
 plot = new_dataframe.plot.bar(y=['Anz_lebend', 'Anz_tot'])
