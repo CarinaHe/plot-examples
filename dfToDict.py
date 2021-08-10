@@ -11,7 +11,7 @@ data = pd.read_csv(
 new_data = data.groupby(['Klasse'])['Anz_lebend'].sum()
 
 #new_dict = new_data.to_dict
-print(new_data.to_dict)
+
 #new_dataframe.to_csv('test.csv')
 #new_dict=dict(data.values)
 
